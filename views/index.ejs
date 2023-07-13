@@ -1,0 +1,67 @@
+<%- include('head'); -%>
+
+<body>
+
+<div class="box" id="heading">
+    <h3><%=listaActual%></h3>   
+    <h1><%=kindOfDay%></h1>   
+</div>
+
+<div class="box_ligas">
+    <ul>
+        <%
+            for(let key in listaDeListas){
+        %>
+        <div class="item_liga">
+            <a href='<%="/?lista="+ key%>'> <%=key%> </a>
+        </div>    
+        <%
+        }
+        %>
+        </ul>
+
+        <form class="item_liga" action='/nuevalista' method="post">
+
+            <input type="text" placeholder="nueva lista" name="newItem" id="newItem">
+            
+            <button type="submit">+</button>
+            
+            </form>
+</div>
+    
+<div class="box">
+    <ul>
+        <%
+            for(var i=0;i<listItems.length;i++){
+        %>
+        <div class="item">
+            <input type="checkbox">
+            <p> <%=listItems[i]%> </p>
+        </div>    
+        <%
+        }
+        %>
+        </ul>
+
+        <form class="item" action='<%=redirecturl%>' method="post">
+
+            <input type="text" placeholder="nuevo elemento" name="newItem" id="newItem">
+            
+            <button type="submit">+</button>
+            
+            </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+<%- include('footer'); -%>
